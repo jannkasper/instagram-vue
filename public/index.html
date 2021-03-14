@@ -7,6 +7,30 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
+  <style>
+      body {
+          margin: 0 !important;
+          background-color: #fafafa;
+      }
+      a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+          margin: 0;
+          padding: 0;
+          border: 0;
+          /*font: inherit;*/
+          vertical-align: baseline;
+      }
+
+      input, button, submit {
+          background: transparent;
+          box-shadow: 0 0 0 transparent;
+          border: 0 solid transparent;
+          text-shadow: 0 0 0 transparent;
+      }
+
+      * {
+          box-sizing: border-box;
+      }
+  </style>
   <body>
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
