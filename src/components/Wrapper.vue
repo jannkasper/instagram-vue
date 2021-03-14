@@ -1,7 +1,7 @@
 <template>
   <div v-bind:style="{
     position: position || 'relative',
-    display: display || 'flex',
+    display: display || 'block',
     margin: margin || '0',
     padding: padding || '0',
     width: width || 'auto',
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "FlexWrapper",
+  name: "Wrapper",
   props: {
     position: String,
     display: String,
