@@ -10,7 +10,7 @@
         height: inherit;
         left: 0;
         top: 0;
-   }">
+        }">
       <source :src="src" type="video/mp4" />
     </video>
     <div class="muteIcon" v-on:click="handleClick">
