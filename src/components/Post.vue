@@ -18,6 +18,19 @@
         :sidecar-array="post.sidecarArray"
         :video-url="post.videoUrl"
     />
+
+    <Comment :feedDescription="true" :owner="post.owner" :text="post.description" />
+    <FlexWrapper margin="0 0 0 1rem">
+      <Button :href="`/p/${post.shortcode}`">
+        <Info size="14px" height="22px" color="#9a9a9a">
+          View all {{numCommaFormatter(post.commentsData.count)}} comments
+        </Info>
+      </Button>
+    </FlexWrapper>
+
+    <Wrapper margin="0 0 0 1rem">
+      <Info size="10px" height="22px" color="#9a9a9a">{{dateFormatter(post.createdAt)}}</Info>
+    </Wrapper>
   </Wrapper>
 </template>
 
@@ -25,15 +38,29 @@
 import Wrapper from "@/components/Wrapper";
 import Author from "@/components/Author";
 import Picture from "@/components/Picture";
+import Info from "@/components/InfoText";
+import { dateFormatter, numCommaFormatter } from "../../util/formatter";
+import FlexWrapper from "@/components/FlexWrapper";
+import Button from "@/components/Button";
+import Comment from "@/components/Comment";
+
 export default {
   name: "Post",
   components: {
+    Comment,
+    Button,
+    FlexWrapper,
+    Info,
     Picture,
     Author,
     Wrapper
   },
   props: {
     post: Object,
-  }
+  },
+  methods: {
+    dateFormatter: dateFormatter,
+    numCommaFormatter: numCommaFormatter,
+  },
 }
 </script>

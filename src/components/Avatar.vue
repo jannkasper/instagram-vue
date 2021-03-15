@@ -25,8 +25,8 @@ export default {
       default: "none"
     },
     borderRadius: {
-      type: Number,
-      default: 50
+      type: String,
+      default: "50%"
     }
   }
 }
