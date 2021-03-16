@@ -82,9 +82,5 @@ export default {
     dateFormatter: dateFormatter,
     numCommaFormatter: numCommaFormatter,
   },
-
-  mounted() {
-    // console.log(this.post)
-  }
 }
 </script>

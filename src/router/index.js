@@ -14,6 +14,11 @@ export default new Router({
             path: "/:username",
             name: "user-profile",
             component: () => import("@/views/UserProfile")
+        },
+        {
+            path: "/p/:shortcode",
+            name: "post",
+            component: () => import("@/views/Post")
         }
     ]
 })

@@ -12,14 +12,9 @@
 <script>
 import {fetchState} from "../../util/context";
 import Post from "@/components/Post";
-// import { Fragment } from "vue-fragment"
 export default {
   name: "Home",
-  components: {
-    Post,
-    // Fragment
-
-  },
+  components: { Post },
   data() {
     return {
       dataState: [],

@@ -17,7 +17,7 @@
       </Button>
     </FlexWrapper>
     <div style="margin: 0.5rem 1rem 0 1rem">
-      <Label>{{numCommaFormatter(likes.count)}} likes</Label>
+      <Label v-if="likes">{{numCommaFormatter(likes.count)}} likes</Label>
       <Info v-if="createdAt"
             size="10px"
             color="#8e8e8e"
@@ -44,8 +44,8 @@ export default {
   name: "PostActions",
   components: {Button, SaveIcon, MessageIcon, CommentIcon, ActivityIcon, IconBase, FlexWrapper, Info, Label, Wrapper},
   props: {
-    likes: Number,
-    createdAt: Date,
+    likes: Object,
+    createdAt: Number,
   },
   methods: {
     numCommaFormatter: numCommaFormatter,

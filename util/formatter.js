@@ -34,23 +34,23 @@ export function dateFormatter(date) {
         return resultDate
     }
 }
-//
-// export function timeFormatter(time) {
-//     const createdDate = new Date(time * 1000);
-//     const currentDate = new Date();
-//     const milliseconds = Math.abs(currentDate - createdDate);
-//     const hours = Math.floor(milliseconds / 36e5);
-//     if (hours < 24) {
-//         return hours + "h";
-//     } else if (hours < 168) {
-//         return Math.floor(hours / 24) + "d";
-//     } else if (hours < 61320) {
-//         return Math.floor(hours / 24 / 7) + "w";
-//     } else {
-//         return Math.floor(hours / 24 / 7 / 365) + "y";
-//     }
-// }
-//
+
+export function timeFormatter(time) {
+    const createdDate = new Date(time * 1000);
+    const currentDate = new Date();
+    const milliseconds = Math.abs(currentDate - createdDate);
+    const hours = Math.floor(milliseconds / 36e5);
+    if (hours < 24) {
+        return hours + "h";
+    } else if (hours < 168) {
+        return Math.floor(hours / 24) + "d";
+    } else if (hours < 61320) {
+        return Math.floor(hours / 24 / 7) + "w";
+    } else {
+        return Math.floor(hours / 24 / 7 / 365) + "y";
+    }
+}
+
 // export function urlFormatter(url) {
 //     return new URL(url).hostname
 // }

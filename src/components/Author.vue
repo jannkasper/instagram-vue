@@ -5,7 +5,7 @@
       alignItems="center"
       border-bottom="1px solid #efefef"
   >
-    <Avatar :src="owner.userImageUrl" size="32px" border="1px #dbdbdb solid" border-radius="50%"/>
+    <Avatar :src="owner.userImageUrl" size="32px" border-radius="50%"/>
     <FlexWrapper
         flexDirection="column"
         margin="0 0 0 16px"

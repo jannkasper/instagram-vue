@@ -22,7 +22,7 @@ export default {
     },
     border: {
       type: String,
-      default: "none"
+      default: "1px #dbdbdb solid"
     },
     borderRadius: {
       type: String,

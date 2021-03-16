@@ -43,7 +43,8 @@ export default {
     feedDescription: {
       type: Boolean,
       default: false
-    }
+    },
+    createdAt: Date
   },
   data() {
     return {

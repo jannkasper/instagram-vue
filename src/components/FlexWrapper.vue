@@ -21,7 +21,8 @@
     borderBottom: borderBottom || 'none',
     borderRadius: border && borderRadius || '0',
     background: background || 'none',
-    zIndex: zIndex || 0
+    zIndex: zIndex || 0,
+    ...other
   }">
     <slot/>
   </div>
@@ -51,7 +52,8 @@ export default {
     borderRadius: String,
     background: String,
     borderBottom: String,
-    zIndex: String
+    zIndex: String,
+    other: Object
   }
 }
 </script>
