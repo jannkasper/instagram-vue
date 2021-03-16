@@ -17,6 +17,7 @@
     background: background || 'none',
     zIndex: zIndex || 0,
     transform: transform,
+    ...other
   }">
     <slot/>
   </div>
@@ -43,6 +44,7 @@ export default {
     background: String,
     zIndex: String,
     transform: String,
+    other: Object
   }
 }
 </script>

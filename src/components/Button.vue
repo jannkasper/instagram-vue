@@ -12,7 +12,10 @@ export default {
   name: "Button",
   props: {
     href: String,
-    onclick: Function,
+    onclick: {
+      type: Function,
+      default: () => {}
+    },
   },
 }
 </script>

@@ -1,8 +1,8 @@
 <template>
   <svg xmlns="http://www.w3.org/2000/svg"
        :color="color"
-       :width="width"
-       :height="height"
+       :width="size || width"
+       :height="size || height"
        :viewBox="viewBox"
        :aria-labelledby="iconName"
        role="presentation"
@@ -36,6 +36,10 @@ export default {
     height: {
       type: [Number, String],
       default: 22
+    },
+    size: {
+      type: [Number, String],
+      default: undefined
     },
     iconColor: {
       type: String,
