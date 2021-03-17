@@ -3,7 +3,7 @@
       height="60px"
       padding="16px"
       alignItems="center"
-      border-bottom="1px solid #efefef"
+      :other="{borderBottom: '1px solid #efefef'}"
   >
     <Avatar :src="owner.userImageUrl" size="32px" border-radius="50%"/>
     <FlexWrapper

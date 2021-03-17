@@ -1,5 +1,6 @@
 <template>
-  <div v-bind:style="{
+  <div v-bind:class="hover && 'hoverOpacity'"
+       v-bind:style="{
     position: position || 'relative',
     display: 'flex',
     justifyContent: justifyContent || 'flex-start',
@@ -18,7 +19,6 @@
     maxWidth: maxWidth || 'none',
     minWidth: minWidth || 'none',
     border: border || 'none',
-    borderBottom: borderBottom || 'none',
     borderRadius: border && borderRadius || '0',
     background: background || 'none',
     zIndex: zIndex || 0,
@@ -51,23 +51,18 @@ export default {
     border: String,
     borderRadius: String,
     background: String,
-    borderBottom: String,
     zIndex: String,
-    other: Object
+    other: Object,
+    hover: Boolean
   }
 }
 </script>
 
-<!--<style lang="css">-->
-<!--.FlexWrapper {-->
-<!--  position: fixed;-->
-<!--  display: flex;-->
-<!--  justify-content: center;-->
-<!--  height: 54px;-->
-<!--  width: 100%;-->
-<!--  background: #fff;-->
-<!--  border-bottom: solid 1px #dbdbdb;-->
-<!--  z-index: 3;-->
-
-<!--}-->
-<!--</style>-->
+<style lang="css">
+.hoverOpacity {
+  opacity: 0;
+}
+.hoverOpacity:hover {
+  opacity: 1;
+}
+</style>

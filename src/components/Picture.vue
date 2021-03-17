@@ -8,7 +8,7 @@
 import Wrapper from "@/components/Wrapper";
 import Video from "@/components/Video";
 import Sidecar from "@/components/Sidecar";
-import Image from "@/components/Image";
+import ImageDefault from "@/components/Image";
 
 export default {
   components: {Image, Wrapper},
@@ -26,7 +26,7 @@ export default {
       } else if (this.isSidecar) {
         return Sidecar
       } else {
-        return Image
+        return ImageDefault
       }
     },
     currentProperties() {

@@ -5,6 +5,7 @@
        :height="size || height"
        :viewBox="viewBox"
        :aria-labelledby="iconName"
+       :transform="transform"
        role="presentation"
   >
     <title :id="iconName" lang="en">{{iconName}} icon</title>
@@ -44,6 +45,10 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+    transform: {
+      type: String,
+      default: 'none'
     }
   }
 }
