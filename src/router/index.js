@@ -19,6 +19,16 @@ export default new Router({
             path: "/p/:shortcode",
             name: "post",
             component: () => import("@/views/Post")
+        },
+        {
+            path: "/explore/tags/:tagName",
+            name: "tag",
+            component: () => import("@/views/explore/Tag")
+        },
+        {
+            path: "/explore/locations/:locationId/:locationName",
+            name: "location",
+            component: () => import("@/views/explore/Location")
         }
     ]
 })
