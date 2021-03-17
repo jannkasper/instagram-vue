@@ -13,7 +13,7 @@ export default new Router({
         {
             path: "/:username",
             name: "user-profile",
-            component: () => import("@/views/UserProfile")
+            component: () => import("@/views/User")
         },
         {
             path: "/p/:shortcode",

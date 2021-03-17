@@ -2,7 +2,9 @@
   <RouterLink v-if="href" class="link" :to="href">
     <slot/>
   </RouterLink>
-  <button v-else class="button" v-on:click="onclick">
+  <button v-else
+          :class="['button', primary ? 'primary' : '']"
+          v-on:click="onclick">
     <slot/>
   </button>
 </template>
@@ -16,6 +18,7 @@ export default {
       type: Function,
       default: () => {}
     },
+    primary: Boolean,
   },
 }
 </script>

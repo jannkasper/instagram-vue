@@ -51,9 +51,9 @@ export function timeFormatter(time) {
     }
 }
 
-// export function urlFormatter(url) {
-//     return new URL(url).hostname
-// }
+export function urlFormatter(url) {
+    return new URL(url).hostname
+}
 //
 // export function bioFormatter(bio) {
 //
