@@ -8,7 +8,9 @@
   >
 
     <FlexItem flex="1 9999 0">
-      <img class="logo" src="../static/images/logo.png" />
+      <Button href="/">
+        <img class="logo" src="../static/images/logo.png" />
+      </Button>
     </FlexItem>
 
     <FlexItem>
@@ -49,11 +51,12 @@ import ExploreIcon from "./icons/ExploreIcon";
 import ActivityIcon from "./icons/ActivityIcon";
 import Avatar from "@/components/Avatar";
 import InstagramSearch from "@/components/InstagramSearch";
-
+import Button from "@/components/Button";
 
 export default {
   name: "Header",
   components: {
+    Button,
     InstagramSearch,
     Wrapper,
     FlexWrapper,

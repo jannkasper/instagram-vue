@@ -11,7 +11,14 @@
           {{owner.username}}
         </Label>
       </Button>
-      <Info size="14px" height="18px">{{ text }}</Info>
+<!--      <Info size="14px" height="18px">{{ text }}</Info>      -->
+      <component v-for="(item,index) in hashtagFormatter(text)"
+                 :key="index"
+                 :style="{ fontSize: '14px', lineHeight: '18px', ...item.style}"
+                 :is="item.currentComponent"
+                 v-bind="item.currentProperties">
+        {{item.text}}
+      </component>
       <Wrapper margin="16px 0 4px 0">
         <Info color="#8e8e8e">{{timeFormatter(createdAt)}}</Info>
         <Fragment v-if="!feedDescription">
@@ -38,7 +45,7 @@ import Label from "@/components/LabelText";
 import Info from "@/components/InfoText";
 import Wrapper from "@/components/Wrapper";
 import { Fragment } from "vue-fragment";
-import { timeFormatter } from "../../util/formatter";
+import { timeFormatter, hashtagFormatter } from "../../util/formatter";
 import IconBase from "@/components/IconBase";
 import LikeIcon from "@/components/icons/LikeIcon";
 
@@ -62,6 +69,7 @@ export default {
   },
   methods: {
     timeFormatter: timeFormatter,
+    hashtagFormatter: hashtagFormatter,
   }
 }
 </script>

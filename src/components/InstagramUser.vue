@@ -15,6 +15,7 @@
     <FlexWrapper flex-direction="column" flex="2 0 30px">
       <FlexWrapper margin="0 0 20px 0">
         <Label :verified="userData.isVerified"
+               display="inline"
                size="28px"
                height="32px"
                weight="300"

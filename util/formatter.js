@@ -1,5 +1,7 @@
-// import Button from "@/components/Button";
-// import Info from "@/components/InfoText";
+import Button from "@/components/Button";
+import InfoText from "@/components/InfoText";
+import Br from "@/components/Br";
+import Pre from "@/components/Pre";
 
 export function numFormatter(num) {
     if (num > 999 && num < 1000000) {
@@ -75,26 +77,47 @@ export function urlFormatter(url) {
 function linkFormatter (array) {
     return array.map(item => {
         if (item.startsWith('#')) {
-            return '<button style={{  color: "#00376b", display: "inline" }} href={`/explore/tags/${item.slice(1)}`} >{item}</button>'
+            return {
+                currentComponent: Button,
+                currentProperties: { href: `/explore/tags/${item.slice(1)}` },
+                text: item,
+                style: { color: "#00376b" }
+            }
         } else if (item.startsWith('@')) {
-            return '<button style={{  color: "#00376b", display: "inline" }} href={`/${item.slice(1)}`}>{item}</button>'
+            return {
+                currentComponent: Button,
+                currentProperties: { href: `/${item.slice(1)}` },
+                text: item,
+                style: { color: "#00376b" }
+            }
         } else if (item == "<br/>") {
-            return '<br/>'
+            return { currentComponent: Br }
+        } else if (item == " ") {
+            return { currentComponent: Pre }
         } else {
-            return `<span>${item}</span>`;
+            return {
+                currentComponent: InfoText,
+                text: item
+            }
         }
     })
 }
 
 export function hashtagFormatter(text) {
     if (!text) {
-        return [text];
+        return [{
+            currentComponent: InfoText,
+            text: text
+        }]
     }
     const hashArray = text.match(/#(\w+)/g); // find hashtags
     const userArray = text.match(/@(\w+)/g); // find users
 
     if (!hashArray && !userArray) {
-        return [text];
+        return [{
+            currentComponent: InfoText,
+            text: text
+        }]
     }
 
     let splitHashesArray = text.replace(/#/gi, "<ERR>#").replace(/@/gi, "<ERR>@").split("<ERR>");

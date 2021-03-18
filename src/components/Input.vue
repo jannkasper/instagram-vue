@@ -1,6 +1,7 @@
 <template>
   <fragment>
     <input
+        @change="event => handleChange(event.target.value)"
         :placeholder="placeholder"
         :style="{
       position: position,
@@ -27,6 +28,8 @@ export default {
     Fragment
   },
   props: {
+    handleChange: Function,
+    value: String,
     placeholder: {
       type: String,
       default: "Search"

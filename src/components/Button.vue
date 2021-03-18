@@ -19,6 +19,7 @@ export default {
       default: () => {}
     },
     primary: Boolean,
+    slot: String,
   },
 }
 </script>
@@ -29,6 +30,7 @@ export default {
   box-shadow: 0 0 0 transparent;
   border: 0 solid transparent;
   text-shadow: 0 0 0 transparent;
+  padding: 0;
 }
 
 .button {

@@ -27,7 +27,7 @@ import IconBase from "@/components/IconBase";
 import VerifiedIcon from "@/components/icons/VerifiedIcon";
 export default {
   name: "Label",
-  components: {VerifiedIcon, IconBase},
+  components: { VerifiedIcon, IconBase },
   props: {
     size: {
       default: "14px"

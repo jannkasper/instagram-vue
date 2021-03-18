@@ -6,7 +6,14 @@
           {{owner.username}}
         </Label>
       </Button>
-      <Info size="14px" height="18px">{{ modifiedText }}</Info>
+<!--      <Info size="14px" height="18px">{{ modifiedText }}</Info>-->
+      <component v-for="(item,index) in hashtagFormatter(modifiedText)"
+                 :key="index"
+                 :style="{ fontSize: '14px', lineHeight: '18px', ...item.style}"
+                 :is="item.currentComponent"
+                 v-bind="item.currentProperties">
+        {{item.text}}
+      </component>
       <Button v-if="!showMore" :onclick="handleShowMore">
         <Info size="14px" color="#9a9a9a">
           more
@@ -53,15 +60,11 @@ export default {
     }
   },
   methods: {
-    result: hashtagFormatter,
+    hashtagFormatter: hashtagFormatter,
     handleShowMore: function() {
       this.showMore = true;
       this.modifiedText = this.text
     }
   },
-  mounted() {
-    const test = hashtagFormatter(this.shortText);
-    return test
-  }
 }
 </script>

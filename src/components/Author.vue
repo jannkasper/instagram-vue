@@ -10,7 +10,9 @@
         flexDirection="column"
         margin="0 0 0 16px"
     >
-      <Label use-hover="true" display="inline">{{owner.username}}</Label>
+      <Button :href="`/${owner.username}`">
+        <Label :verified="owner.isVerified" use-hover="true">{{owner.username}}</Label>
+      </Button>
       <Info v-if="location">{{location.name}}</Info>
     </FlexWrapper>
     <Wrapper margin="0 0 0 auto">
@@ -27,9 +29,10 @@ import IconBase from "@/components/IconBase";
 import MoreIcon from "@/components/icons/MoreIcon";
 import Label from "@/components/LabelText";
 import Info from "@/components/InfoText";
+import Button from "@/components/Button";
 
 export default {
-  components: {Info, Label, MoreIcon, IconBase, Wrapper, Avatar, FlexWrapper},
+  components: {Button, Info, Label, MoreIcon, IconBase, Wrapper, Avatar, FlexWrapper},
   props: {
     owner: Object,
     location: Object
