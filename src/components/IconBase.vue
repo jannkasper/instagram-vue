@@ -46,10 +46,7 @@ export default {
       type: String,
       default: 'currentColor'
     },
-    transform: {
-      type: String,
-      default: 'none'
-    }
+    transform: String
   }
 }
 </script>

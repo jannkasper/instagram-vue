@@ -19,7 +19,6 @@ export default {
       default: () => {}
     },
     primary: Boolean,
-    slot: String,
   },
 }
 </script>

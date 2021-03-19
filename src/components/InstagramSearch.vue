@@ -1,11 +1,13 @@
 <template>
   <Wrapper
+      ref="input"
       height="28px"
       width="215px"
       min-width="125px"
   >
     <Input
         :handle-change="handleChange"
+        :handle-focus="handleFocus"
         height="100%"
         width="100%"
         border="solid 1px #dbdbdb"
@@ -16,7 +18,8 @@
         <IconBase color="#8e8e8e" view-box="0 0 28 28" ><SearchIcon/></IconBase>
       </Wrapper>
     </Input>
-    <SearchResult :search-result="searchResult" :visible="searchResult != null" />
+    <SearchResult :search-result="searchResult"
+                  :visible="Boolean( onFocus && searchValue && searchResult.length > 0)" />
   </Wrapper>
 </template>
 
@@ -40,17 +43,35 @@ export default {
   data() {
     return {
       searchValue: '',
-      searchResult: null,
+      searchResult: [],
+      onFocus: false,
     }
   },
   methods: {
     handleChange: async function (searchValue) {
+      this.searchValue = searchValue;
       if (searchValue.length > 2) {
         this.searchResult = await fetchState(`/search/${searchValue}`);
-        console.log(this.searchResult)
       }
+    },
+    handleFocus: function (value) {
+      console.log(value)
+      this.onFocus = value
+    },
+    handleClickOutside: function(event) {
+      console.log(this.$refs.input.$el);
+      console.log(event)
+      // if (this.$refs.input.current && !this.$refs.input.current.contains(event.target)) {
+      //   this.onFocus = false;
+      // }
     }
   },
+  // mounted() {
+  //   this.$refs.input.$el.addEventListener('mousedown', this.handleClickOutside);
+  // },
+  // destroyed() {
+  //   this.$refs.input.$el.removeEventListener('mousedown', this.handleClickOutside);
+  // },
 }
 </script>
 

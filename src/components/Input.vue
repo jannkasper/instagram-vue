@@ -1,19 +1,21 @@
 <template>
   <fragment>
     <input
-        @change="event => handleChange(event.target.value)"
+        @focusin="() => handleFocus(true)"
+        @focusout="() => handleFocus(false)"
+        v-on:input="event => handleChange(event.target.value)"
         :placeholder="placeholder"
         :style="{
-      position: position,
-      display: display,
-      margin: margin || '0',
-      padding: padding || '0',
-      width: width,
-      height: height,
-      border: border,
-      borderRadius: border && borderRadius,
-      color: color,
-      backgroundColor: backgroundColor
+          position: position,
+          display: display,
+          margin: margin || '0',
+          padding: padding || '0',
+          width: width,
+          height: height,
+          border: border,
+          borderRadius: border && borderRadius,
+          color: color,
+          backgroundColor: backgroundColor
         }"
     />
     <slot/>
@@ -29,6 +31,7 @@ export default {
   },
   props: {
     handleChange: Function,
+    handleFocus: Function,
     value: String,
     placeholder: {
       type: String,
