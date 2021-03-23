@@ -36,16 +36,16 @@ export default {
       default: "none"
     },
     borderRadius: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "0"
     },
     left: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "0"
     },
     top: {
-      type: Number,
-      default: 0
+      type: String,
+      default: "0"
     },
   }
 }

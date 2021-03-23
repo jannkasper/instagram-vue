@@ -1,7 +1,7 @@
 <template>
   <div v-if="dataState">
     <InstagramPost :post="dataState"/>
-    <InstagramGrid :media-array="extraDataState.mediaArray" :title="`More posts from ${dataState.owner.username}`" />
+    <InstagramGrid v-if="extraDataState" :media-array="extraDataState.mediaArray" :title="`More posts from ${dataState.owner.username}`" />
   </div>
 </template>
 

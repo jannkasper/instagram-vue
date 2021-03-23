@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div>
+    <div v-if="Object.keys(dataState).length !== 0">
       <InstagramUser :user-data="dataState" />
       <InstagramStories v-if="dataState.hasStories"
                         :username="username"
                         :user-id="dataState.id" />
       <UserPrivate v-if="dataState.isPrivate" />
-      <InstagramGrid v-else :mediaArray="dataState.timelineMedia.mediaArray" :use-tab-group="true" />
+      <InstagramGrid v-if="dataState.timelineMedia" :mediaArray="dataState.timelineMedia.mediaArray" :use-tab-group="true" />
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       username: this.$route.params.username,
-      dataState: [],
+      dataState: {},
       isFetching: false,
     }
   },

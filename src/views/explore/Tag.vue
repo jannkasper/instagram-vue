@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="Object.keys(dataState).length !== 0">
     <InstagramExplore :is-tag="true"
                       :image-url="dataState.tagImageUrl"
                       :name="`#${dataState.tagName}`"
@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       tagName: this.$route.params.tagName,
-      dataState: [],
+      dataState: {},
       isFetching: false,
     }
   },

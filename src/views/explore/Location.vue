@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="Object.keys(dataState).length !== 0">
     <InstagramExplore :is-tag="false"
                       :image-url="dataState.locationImageUrl"
                       :name="`#${dataState.locationName}`"

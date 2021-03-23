@@ -6,7 +6,7 @@
                    content-padding="0 20px"
                    overflow-x="scroll"
                    overflow-y="hidden"
-                   hide-scrollbar="true">
+                   :hide-scrollbar="true">
       <InstagramStoriesItem v-for="(item, index) in dataState"
                             :key="index"
                             :content="item" />

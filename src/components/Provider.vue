@@ -16,7 +16,6 @@ export default {
   },
   methods: {
     setTriggerLoad: function (value) {
-      console.log(value)
       this.reactive.triggerLoad = value;
     },
     handleScroll: function (event) {
