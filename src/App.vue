@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <Layout>
-      <router-view></router-view>
-    </Layout>
+    <ScrollProvider>
+      <Layout>
+        <router-view></router-view>
+      </Layout>
+    </ScrollProvider>
   </div>
 </template>
 
 <script>
 
 import Layout from "@/components/Layout";
+import ScrollProvider from "@/components/Provider";
 
 export default {
   name: 'App',
   components: {
-    Layout
+    ScrollProvider,
+    Layout,
   }
 }
 </script>

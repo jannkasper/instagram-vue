@@ -10,11 +10,8 @@ export async function fetchState(fetchUrl, params) {
     })
 }
 
-export async function fetchExtendState(context, setContext, url, params) {
-        await publicFetch.get(url, { params }).then( response => {
-            setContext({
-                ...context,
-                timelineMedia: { pageInfo: response.data.pageInfo, mediaArray: context.timelineMedia.mediaArray.concat(response.data.mediaArray) }
-            })
+export async function fetchExtendState(object, url, params) {
+        return publicFetch.get(url, { params }).then( response => {
+            object.timelineMedia = { pageInfo: response.data.pageInfo, mediaArray: object.timelineMedia.mediaArray.concat(response.data.mediaArray) }
         })
 }
