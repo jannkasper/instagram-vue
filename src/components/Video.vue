@@ -11,7 +11,7 @@
         left: 0;
         top: 0;
         }">
-      <source :src="src" type="video/mp4" />
+      <source :src="imageBase64" type="video/mp4" />
     </video>
     <div class="muteIcon" v-on:click="handleClick">
       <IconBase color="#ffffff" height=12 width=12 >
@@ -26,6 +26,7 @@ import { Fragment } from "vue-fragment"
 import IconBase from "@/components/IconBase";
 import Sound from "@/components/icons/SoundIcon";
 import Muted from "@/components/icons/MutedIcon";
+import {fetchImage} from "../../util/image";
 
 export default {
   name: "Video",
@@ -34,18 +35,24 @@ export default {
     src: String
   },
   data() {
-    return { isMuted: true}
+    return { isMuted: true, imageBase64: null  }
   },
   methods: {
     handleClick: function (e) {
       e.preventDefault();
       this.isMuted = !this.isMuted;
-    }
+    },
+    async getImageBase64() {
+      return await fetchImage(this.src);
+    },
   },
   computed: {
     currentComponent: function () {
       return this.isMuted ? Muted : Sound;
-    }
+    },
+  },
+   async created() {
+    this.imageBase64 = await fetchImage(this.src);
   }
 }
 </script>

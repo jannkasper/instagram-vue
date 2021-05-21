@@ -1,5 +1,5 @@
 <template>
-  <img :src="src"
+  <img :src="imageBase64"
        :style="{
     position: position || 'relative',
     display: display || 'flex',
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { fetchImage } from "../../util/image";
 export default {
   name: "ImageDefault",
   props: {
@@ -47,6 +48,19 @@ export default {
       type: String,
       default: "0"
     },
+  },
+  data() {
+    return {
+      imageBase64: null,
+    }
+  },
+  methods: {
+    async getImageBase64() {
+      this.imageBase64 = await fetchImage(this.src);
+    },
+  },
+  async mounted() {
+    this.getImageBase64()
   }
 }
 </script>
